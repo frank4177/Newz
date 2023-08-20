@@ -1,16 +1,16 @@
 import WelcomeScreen from '../screens/WelcomeScreen';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import React from 'react';
-import {AuthStackParamList} from './types';
+import {AppStackParamList, AuthStackParamList} from './types';
 import BottomTabNavigator from './BottomTabsNavigator';
 
-const Stack = createNativeStackNavigator<AuthStackParamList>();
+const Stack = createNativeStackNavigator<AppStackParamList>();
 
-export default function AuthStackNavigation() {
+export default function AppStackNavigation() {
   return (
     <Stack.Navigator>
       <Stack.Screen
-        name="Welcome"
+        name="Root"
         options={{
           headerShown: false,
         }}

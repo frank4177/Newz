@@ -3,11 +3,12 @@ import React from 'react'
 import { NavigationContainer } from "@react-navigation/native"
 import AuthStackNavigator from './AuthStackNavigation'
 import HomeStackNavigator from './HomeStackNavigator'
+import AppStackNavigation from './AppStackNavigator'
 
 export default function Navigation() {
   return (
     <NavigationContainer>
-      <HomeStackNavigator/>
+      <AppStackNavigation/>
     </NavigationContainer>
   )
 }

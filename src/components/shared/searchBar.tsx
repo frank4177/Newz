@@ -1,5 +1,7 @@
-import {View, Text, TextInput, StyleSheet, Image} from 'react-native';
+import {View, Text, TextInput, StyleSheet, Image, Dimensions} from 'react-native';
 import React from 'react';
+
+var {width, height} = Dimensions.get('window');
 
 export default function SearchBar() {
   return (
@@ -18,15 +20,6 @@ export default function SearchBar() {
 }
 
 const styles = StyleSheet.create({
-  iconWrap: {
-    height: 40,
-    width: 40,
-    borderRadius: 100,
-    backgroundColor: 'blue',
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
   inputWrap: {
     borderColor: '#F0F1FA',
     borderWidth: 2,
@@ -37,10 +30,9 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     paddingHorizontal: 20,
     height: 50,
-    flex:1
+    width:width*0.83,
   },
   input: {
-    flex: 1,
     paddingLeft: 2,
   },
 });

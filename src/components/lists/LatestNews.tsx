@@ -13,6 +13,10 @@ import Carousel from 'react-native-reanimated-carousel';
 
 var {width, height} = Dimensions.get('window');
 
+interface Slide {
+  backgroundColor: string;
+}
+
 export default function LatestNews() {
   const scrollViewRef = useRef<ScrollView | null>(null);
   const [activeIndex, setActiveIndex] = useState<number>(0);
@@ -21,7 +25,7 @@ export default function LatestNews() {
 
   };
 
-  const objects = [
+  const objects: Slide[] = [
     {backgroundColor: 'red'},
     {backgroundColor: 'green'},
     {backgroundColor: 'blue'},
@@ -49,7 +53,7 @@ export default function LatestNews() {
 
       {/* Scrollable card */}
       <View style={{paddingLeft:20, flexGrow: 1}}>
-        <Carousel
+        {/* <Carousel
                 // loop
                 width={width}
                 height={width / 2}
@@ -58,7 +62,7 @@ export default function LatestNews() {
                 // scrollAnimationDuration={1000}
                 // onSnapToItem={(index) => console.log('current index:', index)}
                 renderItem={({item, index})=> (<LatestNewsCard  ite={item} key={index}/>)}
-            />
+            /> */}
       </View>
     </View>
   );

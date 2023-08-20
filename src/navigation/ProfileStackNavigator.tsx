@@ -2,24 +2,16 @@ import HomeScreen from '../screens/HomeScreen';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import React from 'react';
 import {HomeStackParamList} from './types';
-import SearchScreen from '../screens/SearchScreen';
+import ProfileScreen from '../screens/ProfileScreen';
 
 const Stack = createNativeStackNavigator<HomeStackParamList>();
 
-export default function HomeStackNavigator() {
+export default function ProfileStackNavigator() {
   return (
     <Stack.Navigator>
       <Stack.Screen
         name="Home"
-        component={HomeScreen}
-        options={{
-          headerShown: false,
-        }}
-      />
-
-      <Stack.Screen
-        name="SearchScreen"
-        component={SearchScreen}
+        component={ProfileScreen}
         options={{
           headerShown: false,
         }}

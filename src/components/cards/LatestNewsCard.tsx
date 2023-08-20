@@ -27,6 +27,7 @@ const styles = StyleSheet.create({
       backgroundColor:"orange",
     //   marginLeft:5,
     //   marginRight:5
+    flex:1
     },
     cardSmall: {
         display: 'flex',

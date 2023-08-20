@@ -3,17 +3,26 @@ import {
     CompositeScreenProps,
     NavigatorScreenParams,
   } from "@react-navigation/native"
+import { NativeStackNavigationProp } from "@react-navigation/native-stack"
 
-
-  
-export type HomeStackParamList = {
-    Home: undefined
-  }
 
   export type AuthStackParamList = {
     Welcome: undefined
   }
-  
+
+ export type HomeStackParamList = {
+    Home: undefined
+    SearchScreen: undefined
+  }
+
+  export type ProfileStackParamList = {
+    Profile: undefined
+  }
+
+  export type FavouriteStackParamList = {
+    Favourite: undefined
+  }
+
 
   export type RootBottomTabParamList = {
     HomeStack: NavigatorScreenParams<HomeStackParamList>
@@ -37,3 +46,6 @@ export type HomeStackParamList = {
       interface RootParamList extends RootStackParamList {}
     }
   }
+
+  export type HomeScreenNavigationType =
+  NativeStackNavigationProp<HomeStackParamList>
