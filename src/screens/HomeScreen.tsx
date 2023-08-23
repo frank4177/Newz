@@ -37,7 +37,7 @@ export default function HomeScreen() {
 
         {/* Latest news */}
         <LatestNews/>
-        <SortCategories data={sortCategoryData}/>
+        <SortCategories data={sortCategoryData} extraButton={false}/>
 
         {/* News list */}
         <NewsList/>

@@ -6,3 +6,6 @@ export const sortCategoryDummyData: SortCategoryType[] = [
     {category: 'There'},
     {category: 'Yay'},
   ];
+
+export const HEIGHT = 220;
+export const OVERDRAG = 20;

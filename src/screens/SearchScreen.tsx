@@ -5,6 +5,8 @@ import SearchBar from '../components/shared/searchBar';
 import {useNavigation} from '@react-navigation/native';
 import SortCategories from '../components/shared/SortCategories';
 import {SortCategoryType} from '../types';
+import DraggableModal from '../components/shared/BottomSheet';
+
 
 const sortCategoryData: SortCategoryType[] = [
   {category: 'Health'},
@@ -20,7 +22,9 @@ export default function SearchScreen() {
   return (
     <SafeAreaWrapper>
         <SearchBar />
-        <SortCategories data={sortCategoryData} />
+        <SortCategories data={sortCategoryData} extraButton={true}/>
+
+        <DraggableModal/>
     </SafeAreaWrapper>
   );
 }
