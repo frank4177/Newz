@@ -9,7 +9,6 @@ import {
 } from 'react-native';
 import React, {useRef, useState, useEffect} from 'react';
 import LatestNewsCard from '../cards/LatestNewsCard';
-import Carousel from 'react-native-reanimated-carousel';
 
 var {width, height} = Dimensions.get('window');
 

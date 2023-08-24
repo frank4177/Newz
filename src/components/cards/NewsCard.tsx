@@ -1,11 +1,13 @@
 import {View, Text, StyleSheet, TouchableOpacity, Image} from 'react-native';
 import React from 'react';
 import LinearGradient from 'react-native-linear-gradient';
+import { dateFormat } from '../../utils/contants';
 
 type Slide = {
+  author: string;
   title: string;
-  name: string;
-  date: string;
+  publishedAt: string;
+  urlToImage:string
 };
 
 interface Iprops {
@@ -16,7 +18,7 @@ export default function NewsCard({item}: Iprops) {
   return (
     <TouchableOpacity style={styles.card}>
       <Image
-        source={require('../../assets/icons/beach.png')}
+        source={{uri: item && item?.urlToImage}}
         style={styles.img}
       />
 
@@ -29,8 +31,8 @@ export default function NewsCard({item}: Iprops) {
           {/* <View> */}
           <Text style={styles.bigText}>{item.title}</Text>
           <View style={styles.smallTextWrap}>
-            <Text style={styles.smallText}>{item.name}</Text>
-            <Text style={styles.smallText}>{item.date}</Text>
+            <Text style={styles.smallText}>{item.author}</Text>
+            <Text style={styles.smallText}>{dateFormat(item.publishedAt)}</Text>
           </View>
           {/* </View> */}
         </LinearGradient>
@@ -44,7 +46,7 @@ const styles = StyleSheet.create({
     gap: 20,
     marginBottom: 20,
     width: '90%',
-    height: 200,
+    height: 170,
     borderRadius:20,
     objectFit:"contain",
     position:"relative"
@@ -63,16 +65,17 @@ const styles = StyleSheet.create({
   },
   linear: {
     height: '100%',
-    padding: 20,
+    padding: 15,
     display: 'flex',
     flexDirection: 'column',
     justifyContent:"space-between",
     borderRadius:20
   },
   bigText: {
-    fontSize: 20,
-    fontWeight: '500',
+    fontSize: 17,
+    fontWeight: '900',
     color: 'white',
+    lineHeight:25
   },
   smallTextWrap:{
     display:"flex",
@@ -80,7 +83,7 @@ const styles = StyleSheet.create({
     justifyContent:"space-between"
   },
   smallText: {
-    fontSize: 17,
+    fontSize: 15,
     fontWeight: '400',
     color: 'white',
   },

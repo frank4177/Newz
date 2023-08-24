@@ -23,7 +23,6 @@ import { NativeStackNavigationProp } from "@react-navigation/native-stack"
     Favourite: undefined
   }
 
-
   export type RootBottomTabParamList = {
     HomeStack: NavigatorScreenParams<HomeStackParamList>
     Profile: undefined
@@ -34,6 +33,7 @@ import { NativeStackNavigationProp } from "@react-navigation/native-stack"
   export type AppStackParamList = {
     Root: NavigatorScreenParams<RootBottomTabParamList>
     Settings: undefined
+    SearchScreen:undefined
   }
   
   export type RootStackParamList = {

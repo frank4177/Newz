@@ -7,5 +7,8 @@ export const sortCategoryDummyData: SortCategoryType[] = [
     {category: 'Yay'},
   ];
 
+  export const dateFormat = (date: string)=>{
+    return new Date(date).toLocaleDateString()
+}
 export const HEIGHT = 220;
 export const OVERDRAG = 20;

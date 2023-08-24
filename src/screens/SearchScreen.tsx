@@ -1,12 +1,12 @@
-import {View, Text} from 'react-native';
-import React from 'react';
+import {View, Text, ScrollView} from 'react-native';
+import React, {useState} from 'react';
 import SafeAreaWrapper from '../components/shared/safe-area-wrapper';
 import SearchBar from '../components/shared/searchBar';
 import {useNavigation} from '@react-navigation/native';
 import SortCategories from '../components/shared/SortCategories';
 import {SortCategoryType} from '../types';
-import DraggableModal from '../components/shared/BottomSheet';
-
+import NewsList from '../components/lists/NewsList';
+import BottomSheet from '../components/shared/BottomSheet';
 
 const sortCategoryData: SortCategoryType[] = [
   {category: 'Health'},
@@ -18,13 +18,27 @@ const sortCategoryData: SortCategoryType[] = [
 
 export default function SearchScreen() {
   const navigation = useNavigation();
+  const [activeSort, setActiveSort] = useState<string>('filter');
+  const [bottomModal, setBottomModal] = useState<boolean>(false);
+
 
   return (
     <SafeAreaWrapper>
-        <SearchBar />
-        <SortCategories data={sortCategoryData} extraButton={true}/>
+      <View>
+      <SearchBar />
+      <SortCategories
+        data={sortCategoryData}
+        extraButton={true}
+        activeSort={activeSort}
+        setActiveSort={setActiveSort}
+        handleExtraButton={setBottomModal}
+      />
+      </View>
+      <Text>About 11,000 results for covid new variant</Text>
 
-        <DraggableModal/>
+      <NewsList />
+      
+      <BottomSheet bottomModal={bottomModal} setBottomModal={setBottomModal}/>
     </SafeAreaWrapper>
   );
 }

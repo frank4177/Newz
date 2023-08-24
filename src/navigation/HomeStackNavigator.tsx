@@ -17,13 +17,7 @@ export default function HomeStackNavigator() {
         }}
       />
 
-      <Stack.Screen
-        name="SearchScreen"
-        component={SearchScreen}
-        options={{
-          headerShown: false,
-        }}
-      />
+     
     </Stack.Navigator>
   );
 }
