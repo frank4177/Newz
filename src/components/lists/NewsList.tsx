@@ -2,6 +2,8 @@ import {View, Text, FlatList} from 'react-native';
 import React from 'react';
 import NewsCard from '../cards/NewsCard';
 import {useFetchAllNews} from '../../services/api';
+import { useNavigation } from '@react-navigation/native';
+import {  AppStackNavigationType, HomeScreenNavigationType } from '../../navigation/types';
 
 interface Slide {
   title: string;
@@ -9,22 +11,17 @@ interface Slide {
   date: string;
 }
 
-type idata = {
-  author: string;
-  title: string;
-  publishedAt: string;
-  urlToImage:string
-};
 
 export default function NewsList() {
+  const navigation = useNavigation<HomeScreenNavigationType>();
   const {data} = useFetchAllNews();
-  console.log(data);
+  
+  function handleNewsClick(item: object) {
+    console.log("pooo",item)
+    navigation.navigate('NewsDetailScreen', {...item});
+  }
 
-  const objects: Slide[] = [
-    {title: 'eat well', name: 'john', date: '20/23/2020'},
-    {title: 'sleep well', name: 'john', date: '20/23/2020'},
-    {title: 'run well', name: 'john', date: '20/23/2020'},
-  ];
+
 
   const getItemLayout = (data: ArrayLike<any> | null | undefined, index: number) => ({
     length: 170, // Replace with the actual height of your item
@@ -43,7 +40,7 @@ export default function NewsList() {
         getItemLayout={getItemLayout}
         // ListEmptyComponent={<EmptyList message="No Expense found :(" />}
         renderItem={({item}) => {
-          return <NewsCard item={item} />;
+          return <NewsCard item={item} handleNewsClick={handleNewsClick}/>;
         }}
       />
     </View>

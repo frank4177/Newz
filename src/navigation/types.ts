@@ -4,6 +4,7 @@ import {
     NavigatorScreenParams,
   } from "@react-navigation/native"
 import { NativeStackNavigationProp } from "@react-navigation/native-stack"
+import { newsData } from "../types"
 
 
   export type AuthStackParamList = {
@@ -13,6 +14,10 @@ import { NativeStackNavigationProp } from "@react-navigation/native-stack"
  export type HomeStackParamList = {
     Home: undefined
     SearchScreen: undefined
+    NewsDetailScreen?: {
+      param?: newsData
+    }
+ 
   }
 
   export type ProfileStackParamList = {
@@ -34,6 +39,10 @@ import { NativeStackNavigationProp } from "@react-navigation/native-stack"
     Root: NavigatorScreenParams<RootBottomTabParamList>
     Settings: undefined
     SearchScreen:undefined
+    NotificationsScreen:undefined
+    NewsDetailScreen?: {
+      item?: object
+    }
   }
   
   export type RootStackParamList = {
@@ -49,3 +58,6 @@ import { NativeStackNavigationProp } from "@react-navigation/native-stack"
 
   export type HomeScreenNavigationType =
   NativeStackNavigationProp<HomeStackParamList>
+
+  export type AppStackNavigationType =
+  NativeStackNavigationProp<AppStackParamList>

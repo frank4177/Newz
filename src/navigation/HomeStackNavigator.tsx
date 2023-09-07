@@ -16,8 +16,6 @@ export default function HomeStackNavigator() {
           headerShown: false,
         }}
       />
-
-     
     </Stack.Navigator>
   );
 }

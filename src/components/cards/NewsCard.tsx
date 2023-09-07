@@ -1,26 +1,22 @@
 import {View, Text, StyleSheet, TouchableOpacity, Image} from 'react-native';
 import React from 'react';
 import LinearGradient from 'react-native-linear-gradient';
-import { dateFormat } from '../../utils/contants';
+import {dateFormat} from '../../utils/contants';
+import { newsData } from '../../types';
 
-type Slide = {
-  author: string;
-  title: string;
-  publishedAt: string;
-  urlToImage:string
-};
+
 
 interface Iprops {
-  item: Slide;
+  item: newsData;
+  handleNewsClick: (parem: object) => void;
 }
 
-export default function NewsCard({item}: Iprops) {
+export default function NewsCard(props: Iprops) {
+  const {item, handleNewsClick} = props;
+
   return (
-    <TouchableOpacity style={styles.card}>
-      <Image
-        source={{uri: item && item?.urlToImage}}
-        style={styles.img}
-      />
+    <TouchableOpacity style={styles.card} onPress={()=>handleNewsClick(item)}>
+      <Image source={{uri: item && item?.urlToImage}} style={styles.img} />
 
       <View style={styles.content}>
         <LinearGradient
@@ -47,16 +43,16 @@ const styles = StyleSheet.create({
     marginBottom: 20,
     width: '90%',
     height: 170,
-    borderRadius:20,
-    objectFit:"contain",
-    position:"relative"
+    borderRadius: 20,
+    objectFit: 'contain',
+    position: 'relative',
   },
   img: {
     height: '100%',
     width: '100%',
     position: 'absolute',
-    objectFit:"cover",
-    borderRadius:20
+    objectFit: 'cover',
+    borderRadius: 20,
   },
   content: {
     display: 'flex',
@@ -68,19 +64,19 @@ const styles = StyleSheet.create({
     padding: 15,
     display: 'flex',
     flexDirection: 'column',
-    justifyContent:"space-between",
-    borderRadius:20
+    justifyContent: 'space-between',
+    borderRadius: 20,
   },
   bigText: {
     fontSize: 17,
     fontWeight: '900',
     color: 'white',
-    lineHeight:25
+    lineHeight: 25,
   },
-  smallTextWrap:{
-    display:"flex",
-    flexDirection:"row",
-    justifyContent:"space-between"
+  smallTextWrap: {
+    display: 'flex',
+    flexDirection: 'row',
+    justifyContent: 'space-between',
   },
   smallText: {
     fontSize: 15,

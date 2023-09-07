@@ -10,9 +10,8 @@ export const useFetchAllNews = () => {
 
   //NEW WAY TO FETCH DATA
   const fetcher = async (args: string) => {
-    console.log(args)
     const res = await request.get(args);
-    console.log("lo:",res)
+    // console.log("lo:", res)
     return res?.data;
   };
 

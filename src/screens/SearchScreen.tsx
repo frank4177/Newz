@@ -7,6 +7,7 @@ import SortCategories from '../components/shared/SortCategories';
 import {SortCategoryType} from '../types';
 import NewsList from '../components/lists/NewsList';
 import BottomSheet from '../components/shared/BottomSheet';
+import {HomeScreenNavigationType} from '../navigation/types';
 
 const sortCategoryData: SortCategoryType[] = [
   {category: 'Health'},
@@ -17,7 +18,7 @@ const sortCategoryData: SortCategoryType[] = [
 ];
 
 export default function SearchScreen() {
-  const navigation = useNavigation();
+  const navigation = useNavigation<HomeScreenNavigationType>();
   const [activeSort, setActiveSort] = useState<string>('filter');
   const [bottomModal, setBottomModal] = useState<boolean>(false);
 
