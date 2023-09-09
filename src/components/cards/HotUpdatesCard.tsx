@@ -22,7 +22,7 @@ export default function HotUpdatesCard() {
           </Text>
         </View>
 
-        <Text style={{fontSize: 14, fontWeight: '700', color: 'black'}}>
+        <Text style={{fontSize: 14, fontWeight: '600', color: 'black'}}>
           Published by<Text>baik koo</Text>
         </Text>
       </View>
