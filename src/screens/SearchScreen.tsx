@@ -22,24 +22,23 @@ export default function SearchScreen() {
   const [activeSort, setActiveSort] = useState<string>('filter');
   const [bottomModal, setBottomModal] = useState<boolean>(false);
 
-
   return (
     <SafeAreaWrapper>
-      <View>
       <SearchBar />
-      <SortCategories
-        data={sortCategoryData}
-        extraButton={true}
-        activeSort={activeSort}
-        setActiveSort={setActiveSort}
-        handleExtraButton={setBottomModal}
-      />
+      <View>
+        <SortCategories
+          data={sortCategoryData}
+          extraButton={true}
+          activeSort={activeSort}
+          setActiveSort={setActiveSort}
+          handleExtraButton={setBottomModal}
+        />
       </View>
       <Text>About 11,000 results for covid new variant</Text>
 
       <NewsList />
-      
-      <BottomSheet bottomModal={bottomModal} setBottomModal={setBottomModal}/>
+
+      <BottomSheet bottomModal={bottomModal} setBottomModal={setBottomModal} />
     </SafeAreaWrapper>
   );
 }

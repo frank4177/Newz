@@ -41,7 +41,7 @@ export default function NewsDetailScreen(props: newsData) {
 
           <View style={styles.textWrap}>
             <Text style={{fontSize: 15, fontWeight: '500'}}>
-              Sunday, 9 Mkay 2023
+              Sunday, 9 May 2023
             </Text>
             <Text style={{fontSize: 16, fontWeight: '700'}}>{title}</Text>
             <Text style={{fontSize: 13, fontWeight: '700'}}>

@@ -10,7 +10,10 @@ const SafeAreaWrapper = ({ children }: SafeAreaWrapperProps) => {
     <SafeAreaView
       style={{
         flex: 1,
-        backgroundColor: "white"
+        backgroundColor: "white",
+        padding: 15,
+        flexDirection:"column",
+        gap:25
       }}
     >
       {children}

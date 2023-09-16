@@ -44,7 +44,7 @@ export default function HomeScreen() {
 
       {/* Latest news */}
       <LatestNews />
-      {/* <SortCategories data={sortCategoryData} extraButton={false} /> */}
+      <SortCategories data={sortCategoryData} extraButton={false} />
 
       {/* News list */}
       <NewsList/>
@@ -58,6 +58,6 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'space-between',
     flexDirection: 'row',
-    gap: 20,
+    gap:10
   },
 });

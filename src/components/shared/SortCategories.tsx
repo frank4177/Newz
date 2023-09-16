@@ -12,11 +12,11 @@ import {redLinearGradient} from '../../utils/theme';
 import LinearGradient from 'react-native-linear-gradient';
 
 interface IcategoryProps {
-  data: SortCategoryType[];
-  extraButton: boolean;
-  setActiveSort: React.Dispatch<React.SetStateAction<string>>;
-  activeSort: string;
-  handleExtraButton: React.Dispatch<React.SetStateAction<boolean>>
+  data?: SortCategoryType[];
+  extraButton?: boolean;
+  setActiveSort?: React.Dispatch<React.SetStateAction<string>> | undefined;
+  activeSort?: string;
+  handleExtraButton?: React.Dispatch<React.SetStateAction<boolean>> | undefined;
 }
 
 export default function SortCategories({
@@ -33,8 +33,8 @@ export default function SortCategories({
   }
 
   function handleExtraBtn() {
-    setActiveSort("filter");
-    handleExtraButton(true)
+    setActiveSort('filter');
+    handleExtraButton(true);
   }
 
   return (

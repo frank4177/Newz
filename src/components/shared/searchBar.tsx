@@ -30,7 +30,7 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     paddingHorizontal: 20,
     height: 50,
-    width:width*0.83,
+    width:"80%",
   },
   input: {
     paddingLeft: 2,

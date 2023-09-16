@@ -5,9 +5,9 @@ export type SortCategoryType = {
 
 type newsData = {
     route?: any;
-    author: string;
-    title: string;
-    publishedAt: string;
-    urlToImage: string;
-    content: string
+    author?: string;
+    title?: string;
+    publishedAt?: string | undefined | Date | number;
+    urlToImage?: string;
+    content?: string
   };

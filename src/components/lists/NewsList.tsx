@@ -17,7 +17,6 @@ export default function NewsList() {
   const {data} = useFetchAllNews();
   
   function handleNewsClick(item: object) {
-    console.log("pooo",item)
     navigation.navigate('NewsDetailScreen', {...item});
   }
 

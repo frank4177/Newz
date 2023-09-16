@@ -6,7 +6,7 @@ export default function HotUpdatesCard() {
     <View style={styles.container}>
       <Image
         source={require('../../assets/icons/beach.png')}
-        style={{height: 150, width: 400, objectFit: 'cover', borderRadius: 20}}
+        style={{height: 150, width: "100%", objectFit: 'cover', borderRadius: 20}}
       />
 
       <View style={styles.textWrap}>
@@ -32,7 +32,7 @@ export default function HotUpdatesCard() {
 
 const styles = StyleSheet.create({
     container:{
-        padding:10
+        padding:10,
     },
   textWrap: {
     display: 'flex',

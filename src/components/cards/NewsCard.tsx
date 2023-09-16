@@ -28,7 +28,7 @@ export default function NewsCard(props: Iprops) {
           <Text style={styles.bigText}>{item.title}</Text>
           <View style={styles.smallTextWrap}>
             <Text style={styles.smallText}>{item.author}</Text>
-            <Text style={styles.smallText}>{dateFormat(item.publishedAt)}</Text>
+            <Text style={styles.smallText}>{dateFormat(item?.publishedAt)}</Text>
           </View>
           {/* </View> */}
         </LinearGradient>
@@ -41,7 +41,7 @@ const styles = StyleSheet.create({
   card: {
     gap: 20,
     marginBottom: 20,
-    width: '90%',
+    width: '100%',
     height: 170,
     borderRadius: 20,
     objectFit: 'contain',

@@ -9,6 +9,10 @@ import {
 } from 'react-native';
 import React, {useRef, useState, useEffect} from 'react';
 import LatestNewsCard from '../cards/LatestNewsCard';
+import {useNavigation} from '@react-navigation/native';
+import {AppStackNavigationType} from '../../navigation/types';
+import Carousel from 'react-native-snap-carousel';
+import { useFetchLatestNews } from '../../services/api';
 
 var {width, height} = Dimensions.get('window');
 
@@ -18,19 +22,22 @@ interface Slide {
 
 export default function LatestNews() {
   const scrollViewRef = useRef<ScrollView | null>(null);
-  const [activeIndex, setActiveIndex] = useState<number>(0);
+  const navigation = useNavigation<AppStackNavigationType>();
+  const {data} = useFetchLatestNews()
 
-  const handleScroll = (event: any) => {
+  function handleSeeAllClick() {
+    navigation.navigate('SearchScreen');
+  }
 
-  };
+  function handleNewsClick(item: object) {
+    navigation.navigate('NewsDetailScreen', {...item});
+  }
 
   const objects: Slide[] = [
     {backgroundColor: 'red'},
     {backgroundColor: 'green'},
     {backgroundColor: 'blue'},
   ];
-
-
 
   return (
     <View>
@@ -42,26 +49,32 @@ export default function LatestNews() {
 
         {/* See all */}
         <TouchableOpacity style={styles.seeAll}>
-          <Text style={{fontSize: 16}}>See All</Text>
+          <Text style={{fontSize: 16}} onPress={() => handleSeeAllClick()}>
+            See All
+          </Text>
           <Image
             source={require('../../assets/icons/arrowRight.png')}
-            style={{width: 18, height: 20}}
+            style={{width: 20, height: 20}}
           />
         </TouchableOpacity>
       </View>
 
       {/* Scrollable card */}
-      <View style={{paddingLeft:20, flexGrow: 1}}>
-        {/* <Carousel
-                // loop
-                width={width}
-                height={width / 2}
-                // autoPlay={true}
-                data={objects}
-                // scrollAnimationDuration={1000}
-                // onSnapToItem={(index) => console.log('current index:', index)}
-                renderItem={({item, index})=> (<LatestNewsCard  ite={item} key={index}/>)}
-            /> */}
+      <View style={{flexGrow: 1,  height:230, marginTop:15}}>
+        <Carousel
+        layout={'default'}
+          data={data?.articles}
+          firstItem={1}
+          // loop={true}
+          // inactiveSlideScale={0.86}
+          inactiveSlideOpacity={0.6}
+          sliderWidth={width}
+          itemWidth={width * 0.62}
+          slideStyle={{display: 'flex', alignItems: 'center'}}
+          renderItem={({item, index} :any) => (
+            <LatestNewsCard item={item} key={index} handleNewsClick={handleNewsClick}/>
+          )}
+        />
       </View>
     </View>
   );
@@ -73,8 +86,6 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'space-between',
     flexDirection: 'row',
-    gap: 20,
-    marginBottom: 20,
   },
   seeAll: {
     display: 'flex',
@@ -82,6 +93,5 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     flexDirection: 'row',
     gap: 10,
-    fontSize: 60,
   },
 });
