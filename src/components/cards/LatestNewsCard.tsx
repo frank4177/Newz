@@ -27,7 +27,7 @@ export default function LatestNewsCard({item, handleNewsClick}: Iprops) {
           <Text style={[styles.smallText, {fontWeight: 'bold', marginBottom:7}]}>{item?.author}</Text>
           <Text style={styles.bigText}>{item.title}</Text>
         </View>
-        <Text style={styles.smallText}>{item.source.name}</Text>
+        <Text style={styles.smallText}>{item?.source.name}</Text>
         </LinearGradient>
       </View>
     </TouchableOpacity>
